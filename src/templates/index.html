@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пользователи</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Пользователи</h1>
+
+        <div id="upload-form">
+            <h2>Загрузка файла (csv, xlsx)</h2>
+            <form id="file-upload-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="file" id="file-input" accept=".csv, .xlsx" required>
+                <button type="submit">Загрузить</button>
+                <div id="upload-status"></div>
+            </form>
+        </div>
+
+        <div id="search-form">
+            <h2>Поиск</h2>
+            <input type="text" id="search-input" placeholder="Поиск">
+            <button id="search-button">Поиск</button>
+        </div>
+
+        <div id="table-container">
+            <h2>Список пользователей</h2>
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Возраст</th>
+                        <th>Email</th>
+                        <th>Телефон</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- формирование таблицы -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
